@@ -374,10 +374,37 @@ namespace Fallout
         public void SellfromNPC()
         {
             Console.Clear();
-            Console.WriteLine("Ich stecke noch in der BETA Phase und kann noch nix kaufen");
-            PressAnyKey();
-            DoSomeWithNPC();
+            game.player.GetallInventar();
+            Playerborder();
+            Menuitem = new List<Option>();
+            Option back = new Option('X', "Zurück");
+            for (int i = 0; i < game.player.Inventory.Count; i++)
+            {
+                Option stuff = new Option((char)(97 + i), game.player.Inventory[i].Name.Length > 12 ? game.player.Inventory[i].Name + "\tWert: " + game.player.Inventory[i].Value : game.player.Inventory[i].Name + "\t\tWert: " + game.player.Inventory[i].Value);
+                Menuitem.Add(stuff);
+            }
+            Menuitem.Add(back);
+            ConsoleKeyInfo inputSFN = Console.ReadKey();
+            ShowOption();
+            Menuitem.RemoveRange(0, Menuitem.Count);
+            bool invalidinput = true;
+            do
+            {
+                switch (inputSFN.Key)
+                {
+                    case ConsoleKey.D1:
+                        Console.WriteLine("sds");
+                        PressAnyKey();
+                        break;
+                    default:
+                        Console.WriteLine("Ich habe Ihre Eingabe nicht verstanden");
+                        Console.Read();
+                        SellfromNPC();
+                        break;
+                }
+            } while (invalidinput);
         }
+
         public void RemoveRad()
         {
             Console.Clear();
