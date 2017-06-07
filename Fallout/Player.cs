@@ -28,8 +28,8 @@ namespace Fallout
         {
             this.Inventory = new List<Stuff>();
             this.QuestLog = new List<Quest>();
-            this.Strength = 200;// (dice.DiceTrow(6) + dice.DiceTrow(6) + dice.DiceTrow(6)); 
-            this.Dexterity = 200; // (dice.DiceTrow(6) + dice.DiceTrow(6) + dice.DiceTrow(6));
+            this.Strength = (dice.DiceTrow(6) + dice.DiceTrow(6) + dice.DiceTrow(6)); 
+            this.Dexterity = (dice.DiceTrow(6) + dice.DiceTrow(6) + dice.DiceTrow(6));
             this.Constitution = (dice.DiceTrow(6) + dice.DiceTrow(6) + dice.DiceTrow(6));
             this.Dodge = this.Dexterity * 2;
             this.MaxHealthPoints = ((this.Strength + this.Constitution) / 2);

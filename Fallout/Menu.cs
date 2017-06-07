@@ -378,6 +378,13 @@ namespace Fallout
             PressAnyKey();
             DoSomeWithNPC();
         }
+        public void BuyfromNPC()
+        {
+            Console.Clear();
+            Console.WriteLine("Ich stecke noch in der BETA Phase und kann noch nix verkaufen");
+            PressAnyKey();
+            DoSomeWithNPC();
+        }
         public void RemoveRad()
         {
             Console.Clear();
@@ -410,13 +417,6 @@ namespace Fallout
                 Console.WriteLine("Kein Geld");
                 PressAnyKey();
             }
-            DoSomeWithNPC();
-        }
-        public void BuyfromNPC()
-        {
-            Console.Clear();
-            Console.WriteLine("Ich stecke noch in der BETA Phase und kann noch nix verkaufen");
-            PressAnyKey();
             DoSomeWithNPC();
         }
         public void HealNPC()
@@ -1721,7 +1721,7 @@ namespace Fallout
             if(name != string.Empty && !name.Any(char.IsDigit) && !name.Contains(" "))
             {
                 game.player.Name = name;
-                game.player.CurrentRoom = game.roomA[3];
+                game.player.CurrentRoom = game.roomB[3];
                 game.player.Home = game.roomB[5];
             } else
             {
