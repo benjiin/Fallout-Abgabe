@@ -791,13 +791,11 @@ namespace Fallout
                 int RewardXP = creature.RewardExperiencePoints;
                 if(creature is NPC)
                 {
-                    //game.player.CurrentRoom.NPC.RemoveAt(0);
-                    game.player.CurrentRoom.NPC[0] = null;
+                    game.player.CurrentRoom.NPC.RemoveAt(0);  
                 }
                 else if(creature is Monster)
                 {
-                    //game.player.CurrentRoom.Monster.RemoveAt(0);
-                    game.player.CurrentRoom.Monster[0] = null;
+                    game.player.CurrentRoom.Monster.RemoveAt(0);
                 }
                 Tools bootlecaps;
                 Console.WriteLine("Du hast gewonnen");
@@ -814,6 +812,9 @@ namespace Fallout
                     Console.Write(" (Keine XP für Vault Mörder)");
                 }
                 LevelUp();
+                Console.WriteLine();
+                PressAnyKey();
+                GameMenu();
             }
             if(game.player.HealthPoints <= 0)
             {
@@ -1506,12 +1507,12 @@ namespace Fallout
                 PressAnyKey();
                 Start();
             }
-        } 
+        }
         public void SearchRoom()
         {
             Console.SetCursorPosition(0, 0);
             Console.Write("Du guckst um Dich herum und findest");
-            for(int i=0; i<8; i++)
+            for (int i = 0; i < 8; i++)
             {
                 Thread.Sleep(100);
                 Console.Write(".");
@@ -1535,7 +1536,7 @@ namespace Fallout
                     if (item.ID == 2)
                     {
                         Console.Write("\t\t+ " + item.Name + "(" + item.Amount + ")");
-                    }else
+                    } else
                     {
                         Console.Write("\t\t+ " + item.Name);
                     }
@@ -1543,7 +1544,7 @@ namespace Fallout
                 }
             }
             Console.WriteLine();
-            if(game.player.CurrentRoom.Container.Count != 0)
+            if (game.player.CurrentRoom.Container.Count != 0)
             {
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.White;
@@ -1558,7 +1559,7 @@ namespace Fallout
                 }
             }
             Console.WriteLine();
-            if(game.player.CurrentRoom.Monster.Count != 0)
+            if (game.player.CurrentRoom.Monster.Count != 0)
             {
                 Console.ResetColor();
                 Console.ForegroundColor = ConsoleColor.White;
@@ -1720,7 +1721,7 @@ namespace Fallout
             if(name != string.Empty && !name.Any(char.IsDigit) && !name.Contains(" "))
             {
                 game.player.Name = name;
-                game.player.CurrentRoom = game.roomB[5];
+                game.player.CurrentRoom = game.roomA[3];
                 game.player.Home = game.roomB[5];
             } else
             {
